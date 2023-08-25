@@ -1,0 +1,27 @@
+    Requisições HTTP
+
+    URL: https:// pokeapi.co/api/pokemon
+
+    Request Method: GET | POST | PUT | DELETE
+
+    Request Headers: (Configurações de requisições)
+        Authorization: (credênciais de autorizações)
+        content-type: application/json
+    
+    Request Body
+        {
+            "name": "Teste"
+        }
+
+    STATUS CODE 
+         resposta do servidor de o que aconteceu com a requisição feita se ele recebeu, se foi processada
+
+    Response Headers
+
+    Response Body
+    Família 100-199 Resposta de informação.
+    Família 200-299 Resposta de sucesso.
+    Família 300-399 Redirecionamentos.
+    Família 400-499 Erro do cliente.
+    Família 500-599 Erro do servidor.
+    (Pesquisar sobre!!!)
