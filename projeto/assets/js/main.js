@@ -1,34 +1,59 @@
 
-// Convertendo para Lista Html
+const pokemonList = document.querySelector('#pokemonList');
+const loadMoreButton = document.querySelector('#loadMoreButton')
+
+const maxRecords = 11
+const limit = 5
+let offset = 0
+
+
+
+function convertPokemonTypesToLi(pokemonsTypes) {
+    return pokemonsTypes.map((typeSlot) => ``)
+}
+
+// Convertendo objeto para Lista Html
 function convertPokemonToLi(pokemon) {
     return `
-            <li class="pokemon">
-                <span class="number">#001</span>
+            <li class="pokemon ${pokemon.type}">
+                <span class="number">#${pokemon.number}</span>
                 <span class="name">${pokemon.name}</span>
 
                 <div class="detail">
                     <ol class="types">
-                        <li class="type">grass</li>
-                        <li class="type">paison</li>
+                        ${pokemon.types.map((type) => `<li class="type ${type}">${type}</li>`).join('')}
                     </ol>
-                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/1.svg"
+                    <img src="${pokemon.photo}"
                         alt="${pokemon.name}">
                 </div>
             </li>
     `
 }
 
-const pokemonList =  document.querySelector('#pokemonList');
 
-// Consumo de API
+function loadPokemonItens(offset, limit) {
+    // Consumo de API
+    pokeApi.getPokemons(offset, limit).then((pokemons = []) => {
 
-   pokeApi.getPokemons().then(pokemons => {
-        const listItems = []
-
-        for (let i = 0; i < pokemons.length; i++) {
-            const pokemon = pokemons[i];
-            listItems.push(convertPokemonToLi(pokemon))
-        }
-
-        console.log(listItems)
+        // junta todos os elementos de string com concatenação com o método join()
+        const newHtml = pokemons.map(convertPokemonToLi).join('')
+        pokemonList.innerHTML += newHtml
     })
+}
+
+loadPokemonItens(offset, limit)
+
+loadMoreButton.addEventListener('click', () => {
+    offset += limit
+    debugger
+    const qtdRecordNextPage = offset + limit
+
+    if (qtdRecordNextPage >= maxRecords) {
+        const newLimit = maxRecords - offset
+        loadPokemonItens(offset, newLimit)
+
+        loadMoreButton.parentElement.removeChild(loadMoreButton)
+    } else {
+        loadPokemonItens(offset, limit)
+    }
+})
