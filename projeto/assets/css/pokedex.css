@@ -129,12 +129,22 @@ max-width: 100%;
 }
 
 .pagination button {
-    color: #fff;
-    background-color: #6c79db;
+    width: 15rem;
     font-size: .625rem;
     padding: .25rem .5rem;
     margin: .25rem 0;
     border: none;
     border-radius: 1rem;
+    color: black;
+    background-color: #ffce08;
+    border: solid 3px ;
+    border-color:  #3964b5;
     
+}
+
+.pagination button:hover {
+    color: rgb(255, 255, 255);
+    background-color: #fb1414;
+    border: solid 3px ;
+    border-color:  #ffce08;
 }

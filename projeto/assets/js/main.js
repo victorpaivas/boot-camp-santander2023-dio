@@ -2,19 +2,17 @@
 const pokemonList = document.querySelector('#pokemonList');
 const loadMoreButton = document.querySelector('#loadMoreButton')
 
-const maxRecords = 11
-const limit = 5
-let offset = 0
+const maxLimit = 151;
+const limit = 5;
+let offset = 0;
 
 
+function loadPokemonItens(offset, limit) {
+    // Consumo de API
+    pokeApi.getPokemons(offset, limit).then((pokemons = []) => {
 
-function convertPokemonTypesToLi(pokemonsTypes) {
-    return pokemonsTypes.map((typeSlot) => ``)
-}
-
-// Convertendo objeto para Lista Html
-function convertPokemonToLi(pokemon) {
-    return `
+        // junta todos os elementos de string com concatenação com o método join()
+        const newHtml = pokemons.map((pokemon) => `
             <li class="pokemon ${pokemon.type}">
                 <span class="number">#${pokemon.number}</span>
                 <span class="name">${pokemon.name}</span>
@@ -27,16 +25,7 @@ function convertPokemonToLi(pokemon) {
                         alt="${pokemon.name}">
                 </div>
             </li>
-    `
-}
-
-
-function loadPokemonItens(offset, limit) {
-    // Consumo de API
-    pokeApi.getPokemons(offset, limit).then((pokemons = []) => {
-
-        // junta todos os elementos de string com concatenação com o método join()
-        const newHtml = pokemons.map(convertPokemonToLi).join('')
+`).join('')
         pokemonList.innerHTML += newHtml
     })
 }
@@ -45,15 +34,13 @@ loadPokemonItens(offset, limit)
 
 loadMoreButton.addEventListener('click', () => {
     offset += limit
-    debugger
-    const qtdRecordNextPage = offset + limit
-
-    if (qtdRecordNextPage >= maxRecords) {
-        const newLimit = maxRecords - offset
+    const qtdLimitAddToNextPage = offset + limit
+    if (qtdLimitAddToNextPage >= maxLimit) {
+        const newLimit = maxLimit - offset;
         loadPokemonItens(offset, newLimit)
 
         loadMoreButton.parentElement.removeChild(loadMoreButton)
     } else {
         loadPokemonItens(offset, limit)
-    }
+    } 
 })

@@ -4,15 +4,25 @@
 }
 
 body {
-    background-color: #f6f8fc;
+    background-color: #f0f0f0;
 }
 
 .content {
     padding: 1rem;
-    background-color: #fff;
+    background-color: #fdfafa;
     height: 100vh;
     width: 100vh auto;
+    box-shadow: 3px 3px 5px 3px rgba(19, 18, 18, 0.142);
 
+}
+
+h1 {
+    font-size: 3rem;
+    color: #ffce08;
+    -webkit-text-stroke: 1px #3964b5;
+    -webkit-text-stroke: 1.5px #3964b5;
+    margin-left: .8rem;
+    margin-bottom: 0.8rem;
 }
 
 .pokemons {
@@ -37,6 +47,7 @@ body {
     .pokemons {
         grid-template-columns: 1fr 1fr;
     }
+    
 }
 
 @media screen and (min-width: 576px) {
