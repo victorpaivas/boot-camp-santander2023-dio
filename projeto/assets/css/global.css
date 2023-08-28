@@ -7,6 +7,14 @@ body {
     background-color: #f0f0f0;
 }
 
+.xp {
+    font-size: .8rem;
+    text-align: center;
+}
+
+/* #mais {
+    display: none;
+} */
 .content {
     padding: 1rem;
     background-color: #fdfafa;

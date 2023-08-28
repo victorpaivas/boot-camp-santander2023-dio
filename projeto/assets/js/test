@@ -1,0 +1,31 @@
+<div>
+    <div>
+    <button id="btnLeiaMais" type="button" onclick="leiaMais()">About<span id="pontos"></span></button>
+    <span id="mais"></span>
+</div>
+</div>
+
+<p class="atributes">${pokemon.stats.join(' ')}</p>
+
+
+<div>
+    <button id="btnLeiaMais" type="button" onclick="leiaMais()">About<span id="pontos"></span></button>
+    <span id="mais">${pokemon.stats.join(' ')}</span>
+</div>
+
+function leiaMais() {
+    const pontos = document.querySelector('#pontos')
+    const maisTexto = document.querySelector('#mais')
+    const btnLeiaMais = document.querySelector('#btnLeiaMais')
+    
+    
+    if (pontos.style.display === "none") {
+        pontos.style.display = "inline";
+        maisTexto.style.display = "none"
+        btnLeiaMais.innerHTML = "About"
+    } else {
+        pontos.style.display = "none";
+        maisTexto.style.display = "inline"
+        btnLeiaMais.innerHTML = "Menos"
+    }
+}

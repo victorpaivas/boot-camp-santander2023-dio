@@ -118,7 +118,7 @@
 max-width: 100%;
     height: 70px;
 }
-
+/* Botão para carregar mais pokemon */
 .pagination {
     display: flex;
     flex-direction: row;
@@ -148,3 +148,49 @@ max-width: 100%;
     border: solid 3px ;
     border-color:  #ffce08;
 }
+
+/* Botão Sobre Pokemon */
+.pagination-about {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: left;
+    padding: 1rem;
+}
+
+.pagination-about button {
+    width: 3rem;
+    font-size: .625rem;
+    padding: .25rem .5rem;
+    margin: .25rem 0;
+    border: none;
+    border-radius: 1rem;
+    color: black;
+    background-color: #ffce08;
+    border: solid 3px ;
+    border-color:  #3964b5;
+    
+}
+
+.pagination-about button:hover {
+    color: rgb(255, 255, 255);
+    background-color: #fb1414;
+    border: solid 3px ;
+    border-color:  #ffce08;
+}
+
+.xp-detail{
+    color: #e2e1e1;
+    max-width: 2.3rem;
+    padding: .4rem;
+    margin: 0;
+    background-color: #4343431f;
+    border-radius: 1rem;
+    font-size: .625rem;
+    filter: brightness(1.1);
+    text-align: center;
+    border: solid 1px ;
+    border-color:  #e82604;
+}
+
+
