@@ -2,11 +2,12 @@
 const pokemonList = document.querySelector('#pokemonList');
 const loadMoreButton = document.querySelector('#loadMoreButton')
 
+// Variáveis de Controle
 const maxLimit = 151;
-const limit = 5;
+const limit = 8;
 let offset = 0;
 
-
+// Função para carregar os pokemons iniciais
 function loadPokemonItens(offset, limit) {
     // Consumo de API
     pokeApi.getPokemons(offset, limit).then((pokemons = []) => {
@@ -16,15 +17,21 @@ function loadPokemonItens(offset, limit) {
             <li class="pokemon ${pokemon.type}">
                 <span class="number">#${pokemon.number}</span>
                 <span class="name">${pokemon.name}</span>
-               
+                
                 <span class="xp-detail">XP ${pokemon.xp}</span>
                 <div class="detail">
                     <ol class="types">
-                        ${pokemon.types.map((type) => `<li class="type ${type}">${type}</li>`).join('')}                      
-                    </ol>
+                    
+                        ${pokemon.types.map((type) => `<li class="type ${type}">${type}</li>`).join('')}  
 
-                    <img src="${pokemon.photo}"
-                        alt="${pokemon.name}">
+                        <div class="skill">
+                        <p>Card Skill: <br>${pokemon.stats.join('<br> ')} </p>  
+                        </div>                
+                    </ol>
+                    <div class="zoom">
+                        <img src="${pokemon.photo}"
+                            alt="${pokemon.name}" class="img-responsive">
+                    </div>
                         
                 </div> 
                 </li> `  ).join('')
@@ -32,8 +39,10 @@ function loadPokemonItens(offset, limit) {
     })
 }
 
+// Chamada da função para carregar os pokemons iniciais
 loadPokemonItens(offset, limit)
 
+// Botão para carregar mais pokemons chamando de 8 em 8
 loadMoreButton.addEventListener('click', () => {
     offset += limit
     const qtdLimitAddToNextPage = offset + limit
@@ -46,7 +55,6 @@ loadMoreButton.addEventListener('click', () => {
         loadPokemonItens(offset, limit)
     }
 })
-
 
 
 
