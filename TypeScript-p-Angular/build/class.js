@@ -1,7 +1,9 @@
 "use strict";
 // Classes
+// Data Modifiers => Public, Private and Protect.
 class Character {
-    constructor(stregth, skill) {
+    constructor(name, stregth, skill) {
+        this.name = name;
         this.stregth = stregth;
         this.skill = skill;
     }
@@ -9,5 +11,13 @@ class Character {
         console.log(`Attack with ${this.stregth} point`);
     }
 }
-const p1 = new Character(10, 99);
-p1.attack();
+// Character: superclass
+// Magician: Subclass
+class Magician extends Character {
+    constructor(name, stregth, skill, magicPoints) {
+        super(name, stregth, skill);
+        this.magicPoints = magicPoints;
+    }
+}
+const p1 = new Character('Ryu', 10, 99);
+const p2 = new Magician('Mago', 8, 30, 100);

@@ -6,7 +6,7 @@ let produto = {
     idade: 28,
 };
 let meuProduto = {
-    nome: 'Caneca',
+    nome: 'Livro',
     preco: 33.99,
     unidades: 5,
 };

@@ -14,7 +14,7 @@ type ProdutoLoja = {
 };
 
 let meuProduto: ProdutoLoja = {
-    nome: 'Caneca',
+    nome: 'Livro',
     preco: 33.99,
     unidades: 5,
 };
