@@ -23,6 +23,19 @@
   height: 70%;
 }
 
+.card__body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.card__body > img {
+  max-width: 200px;
+  max-height: 200px;
+
+}
+
 
 .card__stats{
   padding-top: 10px;
@@ -36,6 +49,7 @@
   font-weight: bolder;
   background-color: coral;
   border-radius: 10px;
+  text-transform: uppercase;
 
   padding: 7px;
   margin-right: 5px;
